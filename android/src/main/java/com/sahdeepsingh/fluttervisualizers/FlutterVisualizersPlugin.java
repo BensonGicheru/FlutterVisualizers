@@ -59,7 +59,7 @@ public class FlutterVisualizersPlugin implements FlutterPlugin {
 
       try {
         AudioVisualizerPlayerCall playerCall = parseMethodName(call.method);
-        Log.d("visualizerMethodCall", call.argument( "sessionID"));
+        Log.d("visualizerMethodCall", call.argument( "sessionID") + "");
         switch (playerCall.command) {
           case "activate_visualizer":
             if (visualizer.isActive()) {
