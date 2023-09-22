@@ -10,7 +10,6 @@ class AudioVisualizer {
     required this.channel,
   }) {
     channel.setMethodCallHandler((MethodCall call) {
-
       switch (call.method) {
         case 'onFftVisualization':
           List<int>? samples = call.arguments['fft'];
@@ -25,9 +24,11 @@ class AudioVisualizer {
           }
           break;
         default:
-          throw new UnimplementedError('${call.method} is not implemented for audio visualization channel.');
+          throw new UnimplementedError('${call
+              .method} is not implemented for audio visualization channel.');
       }
-    } as Future<dynamic> Function(MethodCall)?);
+    });
+    // } as Future<dynamic> Function(MethodCall)?);
   }
   void activate(int? sessionID) {
     print(sessionID);
