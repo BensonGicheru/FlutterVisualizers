@@ -23,6 +23,9 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 
+import android.util.Log;
+
+
 /** FlutterVisualizersPlugin */
 public class FlutterVisualizersPlugin implements FlutterPlugin {
     private static final Pattern VISUALIZER_METHOD_NAME_MATCH = Pattern.compile("audiovisualizer/([^/]+)");
@@ -62,6 +65,7 @@ public class FlutterVisualizersPlugin implements FlutterPlugin {
             if (visualizer.isActive()) {
               return;
             }
+
 
             int sessionID = (int )Objects.requireNonNull(call.argument( "sessionID"));
             visualizer.activate(new Visualizer.OnDataCaptureListener() {
