@@ -19,17 +19,30 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
 
 /** FlutterVisualizersPlugin */
-public class FlutterVisualizersPlugin {
+public class FlutterVisualizersPlugin implements FlutterPlugin {
     private static final Pattern VISUALIZER_METHOD_NAME_MATCH = Pattern.compile("audiovisualizer/([^/]+)");
     private static MethodChannel visualizerChannel;
 
-    /** Plugin registration. */
-  public static void registerWith(Registrar registrar) {
-      visualizerChannel = new MethodChannel(registrar.messenger(), "fluttery_audio_visualizer");
-      visualizerChannel.setMethodCallHandler(new FlutteryAudioVisualizerPlugin());
+  @Override
+  public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
+    visualizerChannel = new MethodChannel(registrar.messenger(), "fluttery_audio_visualizer");
+    visualizerChannel.setMethodCallHandler(new FlutteryAudioVisualizerPlugin());
   }
+
+  @Override
+  public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
+    visualizerChannel.setMethodCallHandler(null);
+    visualizerChannel = null;
+  }
+
+    /** Plugin registration. */
+//  public static void registerWith(Registrar registrar) {
+//    visualizerChannel = new MethodChannel(registrar.messenger(), "fluttery_audio_visualizer");
+//    visualizerChannel.setMethodCallHandler(new FlutteryAudioVisualizerPlugin());
+//  }
 
 
   private static class FlutteryAudioVisualizerPlugin implements MethodCallHandler {
