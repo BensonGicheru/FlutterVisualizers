@@ -9,7 +9,7 @@ class AudioVisualizer {
   AudioVisualizer({
     required this.channel,
   }) {
-    channel.setMethodCallHandler((MethodCall call) {
+    channel.setMethodCallHandler((MethodCall call) async {
       switch (call.method) {
         case 'onFftVisualization':
           List<int>? samples = call.arguments['fft'];
