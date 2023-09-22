@@ -28,7 +28,7 @@ public class FlutterVisualizersPlugin implements FlutterPlugin {
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
-    visualizerChannel = new MethodChannel(registrar.messenger(), "fluttery_audio_visualizer");
+    visualizerChannel = new MethodChannel(binding.getBinaryMessenger(), "fluttery_audio_visualizer");
     visualizerChannel.setMethodCallHandler(new FlutteryAudioVisualizerPlugin());
   }
 
