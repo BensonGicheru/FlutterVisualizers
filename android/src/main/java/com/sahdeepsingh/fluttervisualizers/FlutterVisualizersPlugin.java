@@ -118,7 +118,6 @@ public class FlutterVisualizersPlugin implements FlutterPlugin {
       }
 
 
-      @RecentlyNonNull
       @Override
       public String toString() {
         return String.format("AudioVisualizerPlayerCall - Command: %s", command);
