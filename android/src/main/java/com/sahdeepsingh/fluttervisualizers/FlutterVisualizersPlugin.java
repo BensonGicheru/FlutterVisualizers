@@ -20,7 +20,6 @@ import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RecentlyNonNull;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 
