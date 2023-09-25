@@ -1,6 +1,5 @@
 package com.sahdeepsingh.fluttervisualizers;
 
-import android.annotation.TargetApi;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.audiofx.Visualizer;
@@ -53,7 +52,7 @@ public class FlutterVisualizersPlugin implements FlutterPlugin {
   private static class FlutteryAudioVisualizerPlugin implements MethodCallHandler {
 
     private AudioVisualizer visualizer = new AudioVisualizer();
-    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
+
     @Override
     public void onMethodCall(MethodCall call, Result result) {
 
