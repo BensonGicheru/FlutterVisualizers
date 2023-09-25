@@ -20,6 +20,8 @@ import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RecentlyNonNull;
+
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 
 import android.util.Log;
@@ -115,6 +117,8 @@ public class FlutterVisualizersPlugin implements FlutterPlugin {
         this.command = command;
       }
 
+
+      @RecentlyNonNull
       @Override
       public String toString() {
         return String.format("AudioVisualizerPlayerCall - Command: %s", command);
